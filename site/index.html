@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sustainable AI · Digital Twins</title>
+  <meta name="description" content="An agentic-dashboard style presentation on AI Digital Twins: origins, application areas, smart cities, the OODA loop and the dimensions of sustainable AI.">
+  <meta name="theme-color" content="#050b16">
+  <meta property="og:title" content="Sustainable AI Using Digital Twins">
+  <meta property="og:description" content="From Apollo 13 to autonomous, carbon-aware digital twins — an interactive dashboard presentation.">
+  <meta property="og:image" content="assets/img/six-dimensions.jpg">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<div class="app">
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar" aria-label="Presentation navigation">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#3ee6ff" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4" stroke="#5cf27a"/><path d="M11 12h2"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">Sustainable AI</div>
+        <div class="brand-sub">Digital Twin Ops</div>
+      </div>
+    </div>
+
+    <div class="nav-label">Modules</div>
+    <ul class="nav" id="nav">
+      <li><button data-go="0"><span class="nav-num">00</span><span class="nav-text">Mission Overview</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="1"><span class="nav-num">01</span><span class="nav-text">The Origins of Digital Twins</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="2"><span class="nav-num">02</span><span class="nav-text">Application Areas</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="3"><span class="nav-num">03</span><span class="nav-text">Digital Twins for Smart Cities</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="4"><span class="nav-num">04</span><span class="nav-text">OODA Loop &amp; Digital Twins</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="5"><span class="nav-num">05</span><span class="nav-text">Sustainable AI — 12 Dimensions</span><span class="nav-dot"></span></button></li>
+      <li><button data-go="6"><span class="nav-num">06</span><span class="nav-text">Sustainable Business Continuity</span><span class="nav-dot"></span></button></li>
+    </ul>
+
+    <div class="side-status" aria-live="polite">
+      <div class="row"><span>twin.sync</span><span class="ok">● live</span></div>
+      <div class="row"><span>modules reviewed</span><span id="visitedCount">1 / 7</span></div>
+      <div class="meter"><i id="visitedMeter"></i></div>
+      <div class="row"><span>loop latency</span><span id="latency">8 ms</span></div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="crumbs"><span>digital-twin-ops</span> / <b id="crumb">Mission Overview</b></div>
+      <div class="topbar-right">
+        <span class="pill hide-sm"><span class="pulse"></span>Agent online</span>
+        <span class="pill hide-sm mono" id="clock">--:--:--</span>
+        <button class="icon-btn" id="presentBtn" aria-label="Toggle full-screen presentation" title="Present (F)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+
+      <!-- ===================== 00 · COVER ===================== -->
+      <section class="slide" data-title="Mission Overview" aria-label="Mission overview">
+        <div class="slide-inner">
+          <div class="cover-hero">
+            <div class="card" style="padding:30px 30px 28px">
+              <span class="kicker">Briefing · 6 modules</span>
+              <h1 class="cover-title">Sustainable AI<br>Using <span class="grad">Digital Twins</span></h1>
+              <p class="cover-sub">From NASA's Apollo 13 ground simulators to autonomous, carbon-aware twins that observe, orient, decide and act — how AI Digital Twins are becoming the operating system for resilient, green enterprises and cities.</p>
+              <div class="cta">
+                <button class="btn primary" data-go="1">Start briefing
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+                <button class="btn" data-present>Present full screen</button>
+              </div>
+            </div>
+            <div class="card terminal" aria-label="Simulated agent activity log">
+              <div class="term-bar"><i></i><i></i><i></i><span style="margin-left:8px">agent://twin-orchestrator — ooda.log</span></div>
+              <div class="term-body" id="termBody"></div>
+            </div>
+          </div>
+
+          <div class="grid g-4 mt">
+            <div class="card kpi hover">
+              <div class="kpi-label">Unplanned downtime</div>
+              <div class="kpi-value">−20–50<small>%</small></div>
+              <div class="kpi-note">Manufacturing twins with anomaly detection &amp; RL</div>
+            </div>
+            <div class="card kpi hover">
+              <div class="kpi-label">Energy consumption</div>
+              <div class="kpi-value">−10–25<small>%</small></div>
+              <div class="kpi-note">AI-optimized operations, minimal waste</div>
+            </div>
+            <div class="card kpi hover">
+              <div class="kpi-label">Corridor congestion</div>
+              <div class="kpi-value">~−30<small>%</small></div>
+              <div class="kpi-note">Chattanooga signals re-optimized every 4 min</div>
+            </div>
+            <div class="card kpi hover">
+              <div class="kpi-label">HVAC energy</div>
+              <div class="kpi-value">−15–30<small>%</small></div>
+              <div class="kpi-note">Smart-city building energy management</div>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <div class="card-head"><span class="card-tag">Agenda</span></div>
+            <div class="agenda">
+              <button data-go="1"><span class="num-badge">01</span><span><b>The Origins of Digital Twins</b><span>Apollo 13 → PLM 2002 → NASA 2010</span></span></button>
+              <button data-go="2"><span class="num-badge">02</span><span><b>Most Common Application Areas</b><span>Six domains where AI twins deliver</span></span></button>
+              <button data-go="3"><span class="num-badge">03</span><span><b>Digital Twins for Smart Cities</b><span>Urban twins as a predictive OODA engine</span></span></button>
+              <button data-go="4"><span class="num-badge">04</span><span><b>OODA Loop &amp; Digital Twins</b><span>Observe · Orient · Decide · Act</span></span></button>
+              <button data-go="5"><span class="num-badge">05</span><span><b>Sustainable AI — 12 Dimensions</b><span>Greening of AI &amp; AI for greening</span></span></button>
+              <button data-go="6"><span class="num-badge">06</span><span><b>Sustainable Business Continuity</b><span>Six dimensions of resilient, green operations</span></span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 01 · ORIGINS ===================== -->
+      <section class="slide" data-title="The Origins of Digital Twins" aria-label="The origins of digital twins">
+        <div class="slide-inner">
+          <span class="kicker">Module 01 · Origins</span>
+          <h2 class="slide-title">The Origins of <span class="grad">Digital Twins</span></h2>
+          <p class="lede">The foundational concept of a “twin” began with <strong>NASA during the Apollo program</strong> in the late 1960s and 1970, while the modern, fully software-based “Digital Twin” emerged in the <strong>early 2000s</strong>. The evolution occurred across three major milestones.</p>
+
+          <div class="split">
+            <figure class="figure">
+              <div class="media">
+                <img src="assets/img/apollo13.jpg" alt="Apollo-era engineers working on a lunar module replica and at Mission Control consoles" width="2000" height="1116">
+              </div>
+              <figcaption>Apollo 13 · ground replicas &amp; Mission Control (1970)</figcaption>
+              <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            </figure>
+
+            <div class="timeline">
+              <div class="tl-item" style="--accent: var(--amber)">
+                <div class="tl-dot">1</div>
+                <div class="card hover">
+                  <div class="tl-year">1970 · THE PRECURSOR</div>
+                  <h3>NASA's Apollo 13 Mission</h3>
+                  <dl class="kv">
+                    <dt>Used for</dt><dd>Troubleshooting life-or-death spacecraft failures in deep space from Earth.</dd>
+                    <dt>How</dt><dd>Exact ground-based replicas and analog/digital simulators of the flight hardware at Mission Control. After the oxygen tank exploded in April 1970, telemetry from the damaged craft was fed into the simulators to test engine burns, conserve battery power and calculate trajectory adjustments before sending procedures up to the crew.</dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--cyan)">
+                <div class="tl-dot">2</div>
+                <div class="card hover">
+                  <div class="tl-year">2002 · THE FORMAL ARCHITECTURE</div>
+                  <h3>Product Lifecycle Management</h3>
+                  <dl class="kv">
+                    <dt>Used for</dt><dd>Managing manufactured products through their complete lifecycle — from CAD design to assembly, operation and disposal.</dd>
+                    <dt>How</dt><dd>Dr. Michael Grieves presented the foundation at a 2002 Society of Manufacturing Engineers conference (University of Michigan) — first the <b>Mirrored Spaces Model</b>, later the <b>Information Mirroring Model</b> — establishing the three components used today:</dd>
+                  </dl>
+                  <div class="triad"><div>Physical entity<br><span class="muted">in real space</span></div><div>Virtual entity<br><span class="muted">in digital space</span></div><div>Two-way data loops<br><span class="muted">connecting them</span></div></div>
+                </div>
+              </div>
+              <div class="tl-item" style="--accent: var(--green)">
+                <div class="tl-dot">3</div>
+                <div class="card hover">
+                  <div class="tl-year">2010 · COINING THE NAME</div>
+                  <h3>NASA Spacecraft Life-Prediction</h3>
+                  <dl class="kv">
+                    <dt>Used for</dt><dd>Structural health monitoring, stress prediction and continuous fleet maintenance for next-generation aerospace vehicles.</dd>
+                    <dt>How</dt><dd>NASA's John Vickers coined “Digital Twin” in the 2010 Technology Roadmap. Instead of fleet-average maintenance cycles, ultra-realistic physics-based models were paired to <b>individual vehicles</b> using onboard telemetry to forecast fatigue, damage accumulation and remaining lifespan.</dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 02 · APPLICATION AREAS ===================== -->
+      <section class="slide" data-title="Application Areas" aria-label="Most common application areas for AI digital twins">
+        <div class="slide-inner">
+          <span class="kicker">Module 02 · Application Areas</span>
+          <h2 class="slide-title">The Most Common Application Areas for <span class="grad">AI Digital Twins</span></h2>
+          <p class="lede">AI Digital Twins combine <strong>physics-based simulation</strong> with <strong>machine learning</strong>, <strong>real-time IoT telemetry</strong> and <strong>generative reasoning</strong> — shifting twins from passive 3D dashboards into predictive, self-optimizing systems across six major domains.</p>
+
+          <div class="split square">
+            <figure class="figure interactive" data-detail="areas">
+              <div class="media">
+                <img src="assets/img/application-areas.jpg" alt="Wheel of six AI digital twin application areas around a central globe" width="1600" height="1600">
+              <button class="hs" style="--x:63.6;--y:21.5;--d:25.5;--i:0;--c:#ff9b3d" data-key="mfg" aria-label="Smart Manufacturing"></button>
+              <button class="hs" style="--x:82.4;--y:48.6;--d:27;--i:1;--c:#f2e64a" data-key="energy" aria-label="Energy &amp; Utilities"></button>
+              <button class="hs" style="--x:66.5;--y:77.5;--d:26;--i:2;--c:#3ec5ff" data-key="supply" aria-label="Supply Chain &amp; Logistics"></button>
+              <button class="hs" style="--x:34.3;--y:77.5;--d:26;--i:3;--c:#c06bff" data-key="health" aria-label="Healthcare &amp; Life Sciences"></button>
+              <button class="hs" style="--x:17.6;--y:48.6;--d:26;--i:4;--c:#4cf27a" data-key="cities" aria-label="Smart Cities &amp; Infrastructure"></button>
+              <button class="hs" style="--x:32.3;--y:21.3;--d:24.5;--i:5;--c:#ff5f5f" data-key="aero" aria-label="Aerospace &amp; Automotive"></button>
+              <button class="hs" style="--x:50;--y:50;--d:30;--i:6;--c:#3ee6ff" data-key="core" aria-label="AI Digital Twins — overview"></button>
+              </div>
+              <figcaption>Hover a badge to light it up · click to pin</figcaption>
+              <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            </figure>
+
+            <div class="card detail" id="areas">
+              <div class="detail-list">
+                <button data-key="mfg" style="--c:#ff9b3d">1 · Manufacturing</button>
+                <button data-key="energy" style="--c:#f2e64a">2 · Energy</button>
+                <button data-key="supply" style="--c:#3ec5ff">3 · Supply Chain</button>
+                <button data-key="health" style="--c:#c06bff">4 · Healthcare</button>
+                <button data-key="cities" style="--c:#4cf27a">5 · Smart Cities</button>
+                <button data-key="aero" style="--c:#ff5f5f">6 · Aerospace</button>
+              </div>
+              <article class="detail-item" data-key="core" style="--accent:#3ee6ff">
+                <div class="head"><span class="num-badge">AI</span><h3>Six major domains</h3></div>
+                <p class="muted">Each badge on the wheel is a domain where AI twins have moved from visualization to prediction and closed-loop control. Hover or tap a badge — or pick one above — to inspect it.</p>
+                <ul class="ul"><li>Manufacturing is the largest and most mature deployment ground.</li><li>Energy twins manage volatility from decentralized renewables.</li><li>Aerospace &amp; automotive are the direct descendants of NASA's Apollo models.</li></ul>
+              </article>
+              <article class="detail-item" data-key="mfg" style="--accent:#ff9b3d">
+                <div class="head"><span class="num-badge">1</span><h3>Smart Manufacturing &amp; Industrial Automation</h3></div>
+                <p class="muted">The largest and most mature deployment ground for AI digital twins.</p>
+                <ul class="ul">
+                  <li><b>Predictive &amp; prescriptive maintenance:</b> vibration, acoustic and thermal telemetry from CNC machines, robotic arms and presses forecast bearing wear or motor degradation before failure.</li>
+                  <li><b>Virtual commissioning &amp; layout optimization:</b> test PLC code and robotic kinematics in a physics-accurate sandbox before deploying physical lines.</li>
+                  <li><b>Real-time closed-loop tuning:</b> reinforcement learning tweaks feed rates, temperature and pressure to maximize OEE while minimizing scrap.</li>
+                </ul>
+              </article>
+              <article class="detail-item" data-key="energy" style="--accent:#f2e64a">
+                <div class="head"><span class="num-badge">2</span><h3>Energy, Utilities &amp; Grid Optimization</h3></div>
+                <p class="muted">Modern power systems rely on twins to manage volatility caused by decentralized renewables.</p>
+                <ul class="ul">
+                  <li><b>Turbine &amp; plant health:</b> optimize blade pitch, predict thermal stress and cut fuel emissions on wind and gas units.</li>
+                  <li><b>Dynamic grid balancing:</b> simulate demand and intermittent solar/wind feed-in, rerouting load and storage in real time.</li>
+                  <li><b>Asset integrity in oil &amp; gas:</b> model corrosion, pressure transients and subsea pipelines to prevent leaks.</li>
+                </ul>
+              </article>
+              <article class="detail-item" data-key="supply" style="--accent:#3ec5ff">
+                <div class="head"><span class="num-badge">3</span><h3>Supply Chain, Logistics &amp; Warehousing</h3></div>
+                <p class="muted">Twins map global networks from individual fulfillment centers to multimodal transport lanes.</p>
+                <ul class="ul">
+                  <li><b>Warehouse &amp; fleet orchestration:</b> model AGVs, conveyors and pickers to eliminate bottlenecks and optimize slotting.</li>
+                  <li><b>Resilience &amp; “what-if” stress testing:</b> simulate geopolitical disruptions, port strikes or supplier outages before shortages hit.</li>
+                  <li><b>End-to-end traceability &amp; ESG:</b> track carbon intensity and Scope 3 footprints per shipment.</li>
+                </ul>
+              </article>
+              <article class="detail-item" data-key="health" style="--accent:#c06bff">
+                <div class="head"><span class="num-badge">4</span><h3>Healthcare &amp; Life Sciences</h3></div>
+                <p class="muted">Operating at two scales: facility operations and personalized biology.</p>
+                <ul class="ul">
+                  <li><b>Patient-specific organ twins:</b> heart or brain models from MRI, CT and hemodynamic data to simulate surgery or drug response.</li>
+                  <li><b>Drug discovery &amp; formulation:</b> simulate molecular interactions and dissolution to replace costly wet-lab trials.</li>
+                  <li><b>Hospital flow &amp; bed capacity:</b> replicate admissions, triage and OR scheduling to allocate staff during surges.</li>
+                </ul>
+              </article>
+              <article class="detail-item" data-key="cities" style="--accent:#4cf27a">
+                <div class="head"><span class="num-badge">5</span><h3>Smart Cities, Infrastructure &amp; Real Estate</h3></div>
+                <p class="muted">Thousands of disconnected data streams unified into operational twins.</p>
+                <ul class="ul">
+                  <li><b>Traffic flow &amp; autonomous mobility:</b> live camera vision models retime signals and clear emergency corridors.</li>
+                  <li><b>Building energy management (BEMS):</b> HVAC, occupancy and weather data pre-cool or cut load in peak tariff windows.</li>
+                  <li><b>Disaster response simulation:</b> flood surges, evacuation paths and structural loads on bridges and tunnels.</li>
+                </ul>
+              </article>
+              <article class="detail-item" data-key="aero" style="--accent:#ff5f5f">
+                <div class="head"><span class="num-badge">6</span><h3>Aerospace &amp; Automotive Engineering</h3></div>
+                <p class="muted">The direct descendants of NASA's original Apollo models.</p>
+                <ul class="ul">
+                  <li><b>Fleet airframe &amp; engine monitoring:</b> gigabytes of flight data per leg compute remaining useful life (RUL) and tailor maintenance to real conditions.</li>
+                  <li><b>Software-defined vehicle validation:</b> billions of simulated corner-case miles train ADAS and autonomous navigation without physical crashes.</li>
+                </ul>
+              </article>
+              <div class="detail-hint">// hover a badge on the wheel to light it up</div>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <div class="card-head"><h3>High-Impact Application Overview</h3><span class="card-tag">domain · technique · outcome</span></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Domain</th><th>Primary AI technique</th><th>Key metric / business outcome</th></tr></thead>
+                <tbody>
+                  <tr><td>Manufacturing</td><td>Anomaly detection, Reinforcement Learning</td><td class="good">Unplanned downtime reduction (typically 20–50%)</td></tr>
+                  <tr><td>Energy &amp; Utilities</td><td>Time-series forecasting, Physics-informed neural nets (PINNs)</td><td class="good">Up to 10–20% boost in efficiency / lower emissions</td></tr>
+                  <tr><td>Supply Chain</td><td>Graph neural networks, Monte Carlo simulations</td><td class="good">Reduced buffer inventory, faster lead times</td></tr>
+                  <tr><td>Healthcare</td><td>Biomechanical modeling, Generative diffusion</td><td class="good">Lower surgical complication risk, optimized clinical flow</td></tr>
+                  <tr><td>Smart Cities</td><td>Computer vision, Multi-agent spatial simulation</td><td class="good">Reduced transit congestion, 15–30% HVAC energy savings</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 03 · SMART CITIES ===================== -->
+      <section class="slide" data-title="Digital Twins for Smart Cities" aria-label="Digital twins for smart cities">
+        <div class="slide-inner">
+          <span class="kicker">Module 03 · Smart Cities</span>
+          <h2 class="slide-title">Digital Twins for <span class="grad">Smart Cities</span></h2>
+          <p class="lede">An <strong>Urban Digital Twin (UDT)</strong> aggregates GIS terrain, 3D BIM, municipal IoT sensors and public service databases into a single living computational model. Combined with AI, it shifts from a static 3D visualization into a <strong>continuous, predictive OODA engine</strong> for city operations.</p>
+
+          <div class="split">
+            <figure class="figure interactive">
+              <div class="media">
+                <img src="assets/img/decarbonization-engine.jpg" alt="Infographic: Digital Twins — the decarbonization engine, linking industrial and supply chain optimization with sustainable urban and energy planning" width="2000" height="1116">
+              <button class="hs" style="--x:19.1;--y:78.3;--d:5.8;--i:0;--c:#7b8cff" data-tip="Clearpepper · maps multi-tier networks for ESG compliance" aria-label="Clearpepper"></button>
+              <button class="hs" style="--x:29.4;--y:78.3;--d:5.8;--i:1;--c:#5cf27a" data-tip="Batterium · models battery lifecycles &amp; degradation" aria-label="Batterium"></button>
+              <button class="hs" style="--x:39.8;--y:78.3;--d:5.8;--i:2;--c:#3ee6ff" data-tip="Dualistic · AI simulations cut industrial energy waste" aria-label="Dualistic"></button>
+              </div>
+              <figcaption>Digital Twins: the decarbonization engine</figcaption>
+              <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            </figure>
+
+            <div class="grid" style="gap:14px">
+              <div class="card-head" style="margin:0"><h3>High-impact real-world deployments</h3><span class="card-tag">live twins</span></div>
+              <div class="card hover" style="--accent: var(--cyan)">
+                <div class="card-head" style="margin-bottom:6px"><h4>Virtual Singapore</h4><span class="chip">island-wide</span></div>
+                <p>Collaborative dynamic 3D platform with real-time sensor streams. Runs urban wind-flow models for natural ventilation, predicts telecom coverage impact of new developments, and simulates crowd evacuation for civic events.</p>
+              </div>
+              <div class="card hover" style="--accent: var(--green)">
+                <div class="card-head" style="margin-bottom:6px"><h4>Chattanooga, Tennessee</h4><span class="deploy-metric">~30%</span></div>
+                <p>With Oak Ridge National Laboratory: an operational twin consuming <b>500+ sources</b>. AI re-optimizes signal patterns <b>every four minutes</b>, cutting downtown corridor congestion by ~30%.</p>
+              </div>
+              <div class="card hover" style="--accent: var(--amber)">
+                <div class="card-head" style="margin-bottom:6px"><h4>Helsinki 3D+</h4><span class="chip" style="--accent: var(--amber)">carbon neutral</span></div>
+                <p>Tracks the path to carbon neutrality — historical building energy use plus real-time solar irradiation models to prioritize retrofits block by block.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <div class="card-head"><h3>1 · Primary AI application areas</h3><span class="card-tag">urban OODA functions</span></div>
+            <div class="grid g-5">
+              <div class="card hover" style="--accent: var(--cyan)"><span class="chip">Observe &amp; Act</span><h4 style="margin:10px 0 6px">Dynamic Traffic &amp; Multimodal Transit</h4><p>Edge computer vision counts vehicles, pedestrians and cyclists; agents retime signals in 3–5 min loops, create emergency green corridors and dispatch shuttles.</p></div>
+              <div class="card hover" style="--accent: var(--amber)"><span class="chip">Energy · PEDs</span><h4 style="margin:10px 0 6px">Energy Management &amp; Positive Energy Districts</h4><p>CityGML geometry + microclimate + smart meters: ML predicts peak demand hours ahead, triggers demand response, thermal storage and solar feed-in.</p></div>
+              <div class="card hover" style="--accent: #3ec5ff"><span class="chip">Resilience</span><h4 style="margin:10px 0 6px">Hydrology &amp; Disaster Resilience</h4><p>Radar, soil moisture and drainage telemetry coupled with hydrodynamic engines predict street-level flash floods, trigger storm gates and reroute evacuations.</p></div>
+              <div class="card hover" style="--accent: var(--green)"><span class="chip">ESG</span><h4 style="margin:10px 0 6px">Urban Microclimate &amp; Carbon Tracking</h4><p>Wind-tunnel and heat-island simulation; genetic algorithms optimize tree canopy, reflective coatings and building orientation to cut cooling loads.</p></div>
+              <div class="card hover" style="--accent: var(--violet)"><span class="chip">What-if</span><h4 style="margin:10px 0 6px">Virtual Planning &amp; Permitting</h4><p>Drop BIM models into the city twin before zoning approval to test shadows, line of sight, cellular dead zones and traffic disruption.</p></div>
+            </div>
+          </div>
+
+          <div class="grid g-2 mt-lg">
+            <div>
+              <div class="card-head"><h3>3 · The technical architecture stack</h3><span class="card-tag">4 tiers</span></div>
+              <div class="stack">
+                <div class="layer" style="--accent: var(--violet)"><span class="num-badge">4</span><div><h4>Application &amp; Simulation (Prescriptive / UI)</h4><p>Unreal Engine · Cesium · Omniverse (3D/XR) · planning sandboxes &amp; incident control</p></div></div>
+                <div class="stack-arrow">▲</div>
+                <div class="layer" style="--accent: var(--green)"><span class="num-badge">3</span><div><h4>AI Reasoning &amp; Analytics Engine</h4><p>Hydrodynamic &amp; microclimate solvers · time-series forecasting · multi-agent RL (signals)</p></div></div>
+                <div class="stack-arrow">▲</div>
+                <div class="layer" style="--accent: var(--amber)"><span class="num-badge">2</span><div><h4>Data Fusion, Semantics &amp; Geospatial Storage</h4><p>GIS (Esri/OSM) + BIM (IFC/Revit) · spatial knowledge graphs &amp; OGC · TimescaleDB / InfluxDB</p></div></div>
+                <div class="stack-arrow">▲</div>
+                <div class="layer" style="--accent: var(--cyan)"><span class="num-badge">1</span><div><h4>Ingestion &amp; IoT Telemetry Layer</h4><p>SCADA · 5G edge nodes · LoRaWAN environmental · Kafka / MQTT streaming brokers</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="card-head"><h3>Key operational challenges</h3><span class="card-tag">risks</span></div>
+              <div class="grid" style="gap:12px">
+                <div class="card hover" style="--accent: var(--red)"><h4 style="margin-bottom:6px">Siloed data interoperability</h4><p>Bridging utility SCADA, private transit feeds and land registries into a standard geospatial semantic model (OGC CityGML, Energy ADE).</p></div>
+                <div class="card hover" style="--accent: var(--amber)"><h4 style="margin-bottom:6px">Citizen privacy &amp; surveillance</h4><p>Balancing real-time computer-vision monitoring with anonymization — edge redaction and differential privacy.</p></div>
+                <div class="card hover" style="--accent: var(--violet)"><h4 style="margin-bottom:6px">Model drift &amp; calibration</h4><p>Keeping the twin synchronized with physical change: unmapped construction, sensor battery degradation, tree growth altering wind dynamics.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 04 · OODA ===================== -->
+      <section class="slide" data-title="OODA Loop &amp; Digital Twins" aria-label="OODA loop and digital twins">
+        <div class="slide-inner">
+          <span class="kicker">Module 04 · OODA Loop</span>
+          <h2 class="slide-title">The <span class="grad">OODA Loop</span> and Digital Twins</h2>
+          <p class="lede">Developed by military strategist <strong>John Boyd</strong>, the OODA Loop is an information-processing feedback engine: success depends on cycling through <strong>Observe, Orient, Decide and Act</strong> faster and more accurately than your environment or competitors can introduce chaos.</p>
+
+          <div class="tabs" role="tablist" data-tabs="ooda">
+            <button role="tab" class="on" data-tab="life">1 · Daily Life</button>
+            <button role="tab" data-tab="tech">2 · Technological Progress</button>
+            <button role="tab" data-tab="twin">3 · Digital Twins</button>
+            <button role="tab" data-tab="synth">Comparative Synthesis</button>
+          </div>
+
+          <div class="tab-panel on" data-panel="life">
+            <p class="muted" style="max-width:900px">In personal life, friction rarely comes from lack of effort; it comes from getting stuck in <b style="color:var(--text)">Orient</b> (paralysis by analysis) or <b style="color:var(--text)">Decide</b> (indecision).</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Phase</th><th>Daily life mechanism</th><th>Practical example (personal energy &amp; health)</th></tr></thead>
+                <tbody>
+                  <tr><td style="color:var(--cyan)">Observe</td><td>Raw sensory and contextual intake without immediate judgment.</td><td>Noticing persistent 3 PM brain fog, disrupted sleep scores and rising resting heart rate.</td></tr>
+                  <tr><td style="color:var(--amber)">Orient</td><td>Filtering observations through mental models, habits, stress levels and assumptions.</td><td>Recognizing late caffeine plus poor hydration during deep work is depleting cognitive stamina.</td></tr>
+                  <tr><td style="color:var(--violet)">Decide</td><td>Selecting a single hypothesis-driven intervention rather than waiting for certainty.</td><td>A concrete rule: no caffeine after 1 PM, 1 liter of water before noon.</td></tr>
+                  <tr><td style="color:var(--green)">Act</td><td>Executing immediately to generate fresh observational feedback.</td><td>Pre-filling the carafe, swapping espresso for herbal tea, noting next-day focus.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="core"><b>Core dynamic:</b> fast personal loops prevent small routine misalignments from compounding into systemic burnout.</div>
+          </div>
+
+          <div class="tab-panel" data-panel="tech">
+            <p class="muted" style="max-width:900px">Technological waves — from client-server architectures to modern agentic systems — follow Boyd's cycle to obsolete legacy incumbents.</p>
+            <div class="ooda-phases">
+              <div class="card phase hover" style="--accent: var(--cyan)"><div class="phase-name">Observe</div><h4 style="margin:6px 0">Market signals &amp; edge anomalies</h4><p>Engineers and startups monitor emerging constraints — compute bottlenecks, latency limits, monolithic ERPs giving way to modular APIs.</p></div>
+              <div class="card phase hover" style="--accent: var(--amber)"><div class="phase-name">Orient</div><h4 style="margin:6px 0">Synthesis &amp; paradigm shifts</h4><p>The crucial step — incumbents fail here. Builders re-orient around first principles, e.g. LLMs as reasoning engines orchestrating enterprise data flows.</p></div>
+              <div class="card phase hover" style="--accent: var(--violet)"><div class="phase-name">Decide</div><h4 style="margin:6px 0">Resource allocation</h4><p>Committing capital, compute and talent to a specific protocol, tooling standard or micro-architecture.</p></div>
+              <div class="card phase hover" style="--accent: var(--green)"><div class="phase-name">Act</div><h4 style="margin:6px 0">Deployment &amp; feedback</h4><p>Shipping MVPs, open-sourcing libraries, stress-testing under live load — adoption feeds the next iteration.</p></div>
+            </div>
+            <div class="core"><b>Core dynamic:</b> modular, loosely coupled organizations orient and act in days; rigid legacy hierarchies spend months debating the observation.</div>
+          </div>
+
+          <div class="tab-panel" data-panel="twin">
+            <p class="muted" style="max-width:900px">A Digital Twin is the literal, silicon-and-sensor embodiment of an automated OODA loop — replacing human latency with continuous bidirectional telemetry and computational modeling.</p>
+            <div class="split">
+              <figure class="figure interactive" data-detail="oodaDetail">
+                <div class="media">
+                <img src="assets/img/ooda-loop.jpg" alt="System-level digital twin OODA loop around a smart-factory robot arm" width="2000" height="1341">
+                <button class="hs rect" style="--x:89.6;--y:25.7;--w:20.5;--h:44;--c:#3ee6ff" data-key="observe" aria-label="Observe"></button>
+                <button class="hs rect" style="--x:86.8;--y:85.6;--w:23;--h:23;--c:#ffb547" data-key="orient" aria-label="Orient"></button>
+                <button class="hs rect" style="--x:18;--y:76.6;--w:33;--h:40;--c:#a77bff" data-key="decide" aria-label="Decide"></button>
+                <button class="hs rect" style="--x:14.6;--y:24.5;--w:26;--h:24;--c:#5cf27a" data-key="act" aria-label="Act"></button>
+              </div>
+              <figcaption>Hover a quadrant · Observe → Orient → Decide → Act</figcaption>
+                <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </figure>
+              <div class="card detail" id="oodaDetail">
+                <div class="detail-list">
+                  <button data-key="observe" style="--c:#3ee6ff">Observe</button>
+                  <button data-key="orient" style="--c:#ffb547">Orient</button>
+                  <button data-key="decide" style="--c:#a77bff">Decide</button>
+                  <button data-key="act" style="--c:#5cf27a">Act</button>
+                </div>
+                <article class="detail-item" data-key="observe" style="--accent:#3ee6ff">
+                  <div class="head"><span class="num-badge">O</span><h3>Observe · Telemetry &amp; Ingestion</h3></div>
+                  <p class="muted">IoT sensors, vibration meters and runtime telemetry stream real-time operational data from the physical system — a turbine, a factory floor or an enterprise data pipeline — into the digital model.</p>
+                </article>
+                <article class="detail-item" data-key="orient" style="--accent:#ffb547">
+                  <div class="head"><span class="num-badge">O</span><h3>Orient · State Estimation &amp; Physics</h3></div>
+                  <p class="muted">Raw signals are contextualized against historical baselines, structural physics and anomaly detection — determining not just <i>what</i> changed but what it <i>means</i> within tolerances (e.g. normal thermal expansion vs. bearing friction).</p>
+                </article>
+                <article class="detail-item" data-key="decide" style="--accent:#a77bff">
+                  <div class="head"><span class="num-badge">D</span><h3>Decide · Simulation &amp; Optimization</h3></div>
+                  <p class="muted">Instead of guessing, the twin runs synthetic “what-if” simulations in parallel sandboxes, evaluating mitigation paths to find the optimal action — e.g. reduced throughput vs. an unscheduled outage.</p>
+                </article>
+                <article class="detail-item" data-key="act" style="--accent:#5cf27a">
+                  <div class="head"><span class="num-badge">A</span><h3>Act · Automated Dispatch / Control</h3></div>
+                  <p class="muted">The twin triggers an actuator, modulates a parameter directly, or issues a prescriptive alert to operators. The asset responds, creating new telemetry and restarting the loop.</p>
+                </article>
+                <div class="detail-hint">// physical asset ⇄ twin engine: telemetry up, control commands down</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="synth">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Dimension</th><th>Daily life</th><th>Technological waves</th><th>Digital Twins</th></tr></thead>
+                <tbody>
+                  <tr><td>Clock speed</td><td>Hours to weeks</td><td>Months to years</td><td class="good">Milliseconds to seconds</td></tr>
+                  <tr><td>Primary failure mode</td><td>Biased mental models (poor Orient)</td><td>Sunk-cost fallacy &amp; organizational inertia</td><td>Sensor noise or uncalibrated simulation models</td></tr>
+                  <tr><td>Ultimate objective</td><td>Sustainable personal agency &amp; clarity</td><td>Market relevance &amp; disruptive advantage</td><td class="good">Autonomous resilience &amp; zero-downtime optimization</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <div class="card-head"><h3>The loop in heavy industry · See → Think → Do</h3><span class="card-tag">operational framework</span></div>
+            <div class="split">
+              <figure class="figure">
+                <div class="media">
+                <img src="assets/img/operational-framework.jpg" alt="Heavy asset intelligence: the digital twin operational framework with a 6-layer stack and see-think-do closed loop" width="2000" height="1116" loading="lazy">
+              </div>
+              <figcaption>Heavy Asset Intelligence · 6-layer stack + closed loop</figcaption>
+                <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+              </figure>
+              <div class="grid" style="gap:12px">
+                <div class="card hover" style="--accent: var(--amber)"><span class="chip">See ≈ Observe</span><p style="margin-top:8px">Continuous streaming of vibration, temperature and torque telemetry into the virtual model.</p></div>
+                <div class="card hover" style="--accent: var(--violet)"><span class="chip">Think ≈ Orient + Decide</span><p style="margin-top:8px">AI detects subtle anomalies weeks in advance — <b>20–50% lower unplanned downtime</b>.</p></div>
+                <div class="card hover" style="--accent: var(--green)"><span class="chip">Do ≈ Act</span><p style="margin-top:8px">Closed-loop control balances peak output with energy conservation — <b>~20% lower emissions</b>, 10–25% less energy.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 05 · SUSTAINABLE AI 1 ===================== -->
+      <section class="slide" data-title="Sustainable AI — 12 Dimensions" aria-label="Sustainable AI: twelve dimensions">
+        <div class="slide-inner">
+          <span class="kicker">Module 05 · Sustainable AI</span>
+          <h2 class="slide-title">The 12 Dimensions of <span class="grad">AI-Driven Sustainable Transformation</span></h2>
+          <p class="lede">Understanding AI's role in sustainable transformation means looking at both sides of the coin: <strong>greening of AI</strong> (mitigating the environmental footprint of computation) and <strong>AI for greening</strong> (transforming industries, energy grids and ecological preservation). Seven initial dimensions are extended by five new ones.</p>
+
+          <div class="split">
+            <figure class="figure interactive" data-detail="twelve">
+              <div class="media">
+                <img src="assets/img/twelve-dimensions.jpg" alt="Circular framework of 12 dimensions of AI-driven sustainable transformation" width="2000" height="1116">
+              <button class="hs" style="--x:43.2;--y:18.6;--d:9.6;--i:0;--c:#5cf27a" data-key="d1" aria-label="1 Sustainable AI"></button>
+              <button class="hs" style="--x:56.4;--y:18.6;--d:9.6;--i:1;--c:#3ee6ff" data-key="d2" aria-label="2 Sustainable Energy for AI"></button>
+              <button class="hs" style="--x:68.2;--y:30.8;--d:9.6;--i:2;--c:#5cf27a" data-key="d3" aria-label="3 Environmentally Friendly AI"></button>
+              <button class="hs" style="--x:72.1;--y:49.4;--d:9.6;--i:3;--c:#3ee6ff" data-key="d4" aria-label="4 Systems Transformation"></button>
+              <button class="hs" style="--x:70;--y:67.4;--d:9.6;--i:4;--c:#5cf27a" data-key="d5" aria-label="5 Sustainable Businesses"></button>
+              <button class="hs" style="--x:61.8;--y:79.8;--d:9.6;--i:5;--c:#3ee6ff" data-key="d6" aria-label="6 Sustainable AI Service"></button>
+              <button class="hs" style="--x:50.3;--y:85.4;--d:9.6;--i:6;--c:#2ff3c4" data-key="d7" aria-label="7 Secure and Sustainable AI"></button>
+              <button class="hs" style="--x:38.2;--y:79.8;--d:9.6;--i:7;--c:#5cf27a" data-key="d8" aria-label="8 Biodiversity and Conservation"></button>
+              <button class="hs" style="--x:30.6;--y:67.4;--d:9.6;--i:8;--c:#3ee6ff" data-key="d9" aria-label="9 Disaster Resilience"></button>
+              <button class="hs" style="--x:28.1;--y:49.4;--d:9.6;--i:9;--c:#5cf27a" data-key="d10" aria-label="10 Materials Discovery"></button>
+              <button class="hs" style="--x:32;--y:31;--d:9.6;--i:10;--c:#3ee6ff" data-key="d11" aria-label="11 ESG Compliance"></button>
+              <button class="hs" style="--x:50;--y:50;--d:21;--i:11;--c:#2ff3c4" data-key="d12" aria-label="12 Governance and Policy (framework core)"></button>
+              </div>
+              <figcaption>Hover a badge to light it up · click to pin</figcaption>
+              <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            </figure>
+
+            <div class="card detail" id="twelve">
+              <div class="detail-list">
+                <button data-key="d1" style="--c:#5cf27a">1</button><button data-key="d2" style="--c:#3ee6ff">2</button><button data-key="d3" style="--c:#5cf27a">3</button><button data-key="d4" style="--c:#3ee6ff">4</button><button data-key="d5" style="--c:#5cf27a">5</button><button data-key="d6" style="--c:#3ee6ff">6</button><button data-key="d7" style="--c:#2ff3c4">7</button><button data-key="d8" style="--c:#5cf27a">8 ✦</button><button data-key="d9" style="--c:#3ee6ff">9 ✦</button><button data-key="d10" style="--c:#5cf27a">10 ✦</button><button data-key="d11" style="--c:#3ee6ff">11 ✦</button><button data-key="d12" style="--c:#2ff3c4">12 ✦</button>
+              </div>
+              <article class="detail-item" data-key="d1" style="--accent:#5cf27a"><div class="head"><span class="num-badge">1</span><h3>Sustainable AI</h3></div><span class="chip">core · ethics &amp; longevity</span><p class="muted mt">The ethical, societal and systemic longevity of AI across its lifecycle: algorithmic efficiency, social equity, fair labor across data-labeling supply chains, and preventing computational monopolies — fostering well-being and equitable development without depleting resources or deepening inequality.</p></article>
+              <article class="detail-item" data-key="d2" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">2</span><h3>Sustainable Energy for AI</h3></div><span class="chip">greening of AI</span><p class="muted mt">How data centers procure and consume power: shifting hyperscale facilities to 24/7 carbon-free energy (nuclear, geothermal, wind, solar), co-locating near renewable generation, and using AI to align workloads with renewable availability.</p></article>
+              <article class="detail-item" data-key="d3" style="--accent:#5cf27a"><div class="head"><span class="num-badge">3</span><h3>Environmentally Friendly AI (Green AI)</h3></div><span class="chip">greening of AI</span><p class="muted mt">Engineering models and hardware to minimize direct damage: quantization, distillation, parameter-efficient fine-tuning (PEFT), neuromorphic computing, closed-loop liquid cooling and responsible e-waste recycling to cut water use and carbon.</p></article>
+              <article class="detail-item" data-key="d4" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">4</span><h3>AI's Impact on Transforming Systems</h3></div><span class="chip">AI for greening</span><p class="muted mt">Macro-level systems engineering with AI as orchestrator of structural decarbonization: autonomous smart-grid balancing, multimodal traffic optimization and real-time city management where heating, cooling and resource flows self-regulate.</p></article>
+              <article class="detail-item" data-key="d5" style="--accent:#5cf27a"><div class="head"><span class="num-badge">5</span><h3>AI for Sustainable Businesses</h3></div><span class="chip">AI for greening</span><p class="muted mt">An enterprise intelligence engine moving operating models from linear consumption to long-term ESG viability: reverse logistics, less raw-material scrap, lifecycle forecasting and circular supply chains that reduce Scope 1, 2 and 3 emissions.</p></article>
+              <article class="detail-item" data-key="d6" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">6</span><h3>Sustainable AI Service for Businesses</h3></div><span class="chip">service model</span><p class="muted mt">SaaS, API and cloud services architected for measurable utility without runaway cost: transparent compute accounting, multi-tenant optimization, carbon-aware routing and SLAs built on right-sizing (simple queries → small language models).</p></article>
+              <article class="detail-item" data-key="d7" style="--accent:#2ff3c4"><div class="head"><span class="num-badge">7</span><h3>Secure &amp; Sustainable AI</h3></div><span class="chip">resilience</span><p class="muted mt">Long-term resilience collapses if models can be compromised. Safeguards against data poisoning, prompt injection, model inversion and insider threats — protecting critical sustainable infrastructure like power grids and water systems.</p></article>
+              <article class="detail-item" data-key="d8" style="--accent:#5cf27a"><div class="head"><span class="num-badge">8</span><h3>Biodiversity, Conservation &amp; Climate Monitoring</h3></div><span class="chip">new dimension</span><p class="muted mt">Computer vision and satellite sensor fusion monitor deforestation, map canopy shifts, track endangered wildlife and spot illegal fishing or poaching in real time — an automated guardian for ecosystems.</p></article>
+              <article class="detail-item" data-key="d9" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">9</span><h3>Climate Adaptation &amp; Disaster Resilience</h3></div><span class="chip">new dimension</span><p class="muted mt">Hyper-local predictive climate modeling and early warnings for flash floods, hurricanes and wildfires — giving cities, operators and vulnerable communities lead time to evacuate and reinforce defenses.</p></article>
+              <article class="detail-item" data-key="d10" style="--accent:#5cf27a"><div class="head"><span class="num-badge">10</span><h3>Materials Discovery &amp; Green Chemistry</h3></div><span class="chip">new dimension</span><p class="muted mt">Graph neural networks simulate atomic configurations in days rather than decades, accelerating non-toxic batteries, room-temperature superconductors, carbon-capture membranes and biodegradable plastics.</p></article>
+              <article class="detail-item" data-key="d11" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">11</span><h3>Automated ESG Compliance &amp; Carbon Accounting</h3></div><span class="chip">new dimension</span><p class="muted mt">Ingesting and auditing unstructured data — utility bills, manifests, supplier invoices — to automate carbon accounting under CSRD and ISSB, eliminating greenwashing through verifiable metrics.</p></article>
+              <article class="detail-item" data-key="d12" style="--accent:#2ff3c4"><div class="head"><span class="num-badge">12</span><h3>Sociotechnical Governance &amp; Policy</h3></div><span class="chip">new dimension · framework core</span><p class="muted mt">Institutional guardrails against lock-in, resource hoarding and displacement: mandatory compute-footprint disclosure, copyright protection, workforce reskilling and algorithmic accountability — steering AI toward public interest and shared ecological stewardship.</p></article>
+              <div class="detail-hint">// ✦ = new dimension · governance (12) steers the whole framework at its core</div>
+            </div>
+          </div>
+
+          <div class="grid g-2 mt-lg">
+            <div class="card hover" style="--accent: var(--cyan)"><div class="card-head"><h3>Greening of AI</h3><span class="chip">dimensions 1–3 · 6–7</span></div><p>Reduce the footprint of computation itself — carbon-free power for data centers, efficient models and hardware, right-sized services and secure, resilient infrastructure.</p></div>
+            <div class="card hover" style="--accent: var(--green)"><div class="card-head"><h3>AI for Greening</h3><span class="chip">dimensions 4–5 · 8–12</span></div><p>Apply AI to transform systems — grids, cities, businesses, ecosystems, climate adaptation, materials science, ESG reporting and policy.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== 06 · SUSTAINABLE AI 2 ===================== -->
+      <section class="slide" data-title="Sustainable Business Continuity" aria-label="Sustainable business continuity using AI digital twins">
+        <div class="slide-inner">
+          <span class="kicker">Module 06 · Sustainable Continuity</span>
+          <h2 class="slide-title">Sustainable Business Continuity using <span class="grad">AI Digital Twins</span></h2>
+          <p class="lede">Instead of static continuity playbooks and post-crisis recovery, an AI Digital Twin creates a <strong>dynamic, high-fidelity virtual mirror</strong> of an enterprise's assets, IT, workflows and supply networks — anticipating disruption and staying resilient without compromising ecological or economic sustainability.</p>
+
+          <div class="split">
+            <figure class="figure interactive" data-detail="six">
+              <div class="media">
+                <img src="assets/img/six-dimensions.jpg" alt="Six dimensions of sustainable business continuity arranged around a central AI digital twin globe" width="2000" height="1116">
+              <button class="hs" style="--x:73.6;--y:26.3;--d:12.4;--i:0;--c:#3ee6ff" data-key="s1" aria-label="1 Predictive Foresight"></button>
+              <button class="hs" style="--x:80.4;--y:50;--d:12.4;--i:1;--c:#5cf27a" data-key="s2" aria-label="2 Lean Resilience"></button>
+              <button class="hs" style="--x:73.6;--y:73.7;--d:12.4;--i:2;--c:#5cf27a" data-key="s3" aria-label="3 Climate-Adaptive Operations"></button>
+              <button class="hs" style="--x:26.4;--y:73.7;--d:12.4;--i:3;--c:#3ec5ff" data-key="s4" aria-label="4 Circular Supply Chain"></button>
+              <button class="hs" style="--x:21.4;--y:50;--d:12.4;--i:4;--c:#3ec5ff" data-key="s5" aria-label="5 Cyber-Resilient Simulation"></button>
+              <button class="hs" style="--x:26.4;--y:26.3;--d:12.4;--i:5;--c:#2ff3c4" data-key="s6" aria-label="6 Human-Centric Workspace"></button>
+              <button class="hs" style="--x:50;--y:50;--d:24;--i:6;--c:#3ee6ff" data-key="s0" aria-label="AI digital twins for sustainable continuity"></button>
+              </div>
+              <figcaption>Hover a badge to light it up · click to pin</figcaption>
+              <button class="icon-btn expand" data-zoom aria-label="Expand image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+            </figure>
+
+            <div class="card detail" id="six">
+              <div class="detail-list">
+                <button data-key="s1" style="--c:#3ee6ff">1 · Foresight</button><button data-key="s2" style="--c:#5cf27a">2 · Lean</button><button data-key="s3" style="--c:#5cf27a">3 · Climate</button><button data-key="s4" style="--c:#3ec5ff">4 · Circular</button><button data-key="s5" style="--c:#3ec5ff">5 · Cyber</button><button data-key="s6" style="--c:#2ff3c4">6 · Human</button>
+              </div>
+              <article class="detail-item" data-key="s0" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">◎</span><h3>AI Digital Twins for Sustainable Continuity</h3></div><p class="muted">A circular framework for resilient &amp; green enterprises: six dimensions that move business continuity from reactive recovery to predictive, carbon-aware prevention. Hover or tap a badge to explore each.</p></article>
+              <article class="detail-item" data-key="s1" style="--accent:#3ee6ff"><div class="head"><span class="num-badge">1</span><h3>From Reactive Recovery to Predictive Foresight</h3></div><p class="muted">Traditional BCM triggers failovers only after an outage, cyberattack or catastrophe. Twins ingest IoT telemetry, geopolitical risk feeds, grid data and weather to model stress before it manifests — simulating failure cascades (e.g. a regional power failure hitting server racks or raw-material nodes) and pre-rerouting loads before downtime happens.</p></article>
+              <article class="detail-item" data-key="s2" style="--accent:#5cf27a"><div class="head"><span class="num-badge">2</span><h3>Eliminating Resource-Heavy Redundancy (“Lean Resilience”)</h3></div><p class="muted">Continuity used to mean idle duplicate “hot site” data centers and massive buffer inventories. Twins enable <b>algorithmic resilience</b>: dynamic stress-testing across multi-tier networks optimizes existing multi-cloud footprints and lean buffers — cutting idle Scope 2 emissions and material waste while keeping zero-interruption service.</p></article>
+              <article class="detail-item" data-key="s3" style="--accent:#5cf27a"><div class="head"><span class="num-badge">3</span><h3>Climate-Adaptive Operations &amp; Physical Risk Modeling</h3></div><p class="muted">Twins simulate real-time climate risk against real estate, plants and logistics corridors — flood risk, local water stress, heatwave blackouts — throttling energy use, shifting loads to on-site microgrids, or moving production to unaffected sister sites with minimal carbon spikes.</p></article>
+              <article class="detail-item" data-key="s4" style="--accent:#3ec5ff"><div class="head"><span class="num-badge">4</span><h3>Supply Chain Circularity &amp; Disruption Rerouting</h3></div><p class="muted">Disruptions often force high-emission responses like expedited air freight. End-to-end supply chain twins simulate supplier bottlenecks, port strikes and embargoes in advance, find low-carbon alternatives (maritime or rail instead of air) and orchestrate circular reverse logistics.</p></article>
+              <article class="detail-item" data-key="s5" style="--accent:#3ec5ff"><div class="head"><span class="num-badge">5</span><h3>Cyber-Resilient Infrastructure Simulation</h3></div><p class="muted">An isolated virtual sandbox mirroring production lets security architects run “what-if” ransomware simulations, test autonomous recovery protocols and isolate compromised sub-networks — validating recovery paths without risking live operations or customer data.</p></article>
+              <article class="detail-item" data-key="s6" style="--accent:#2ff3c4"><div class="head"><span class="num-badge">6</span><h3>Human-Centric Workspace Resilience</h3></div><p class="muted">Human health, safety and adaptability at the center: twins simulate heat, air quality and hazards, orchestrate safe evacuation routes and optimize shifts to prevent burnout — and enable remote, asynchronous operations through immersive collaboration during systemic disruption.</p></article>
+              <div class="detail-hint">// a circular framework for resilient &amp; green enterprises</div>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <div class="card-head"><h3>Core value matrix · Traditional BCM vs. AI Digital Twin continuity</h3><span class="card-tag">comparison</span></div>
+            <div class="table-wrap versus">
+              <table>
+                <thead><tr><th>Dimension</th><th>Traditional business continuity</th><th>AI Digital Twin sustainable continuity</th></tr></thead>
+                <tbody>
+                  <tr><td>Strategy</td><td>Reactive incident response &amp; post-event recovery</td><td>Predictive, autonomous stress-testing &amp; prevention</td></tr>
+                  <tr><td>Asset redundancy</td><td>Carbon-intensive idle hardware and excess stock</td><td>Dynamic, software-orchestrated resource sharing</td></tr>
+                  <tr><td>Testing</td><td>Disruptive, semi-annual tabletop exercises</td><td>Continuous, non-intrusive 24/7 digital simulation</td></tr>
+                  <tr><td>Environmental cost</td><td>High-emission emergency pivots (e.g. air freight)</td><td>Carbon-optimized routing &amp; microgrid-aware failover</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <button class="icon-btn" id="prevBtn" aria-label="Previous module"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <span id="counter" class="mono">00 / 06</span>
+      <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+      <span class="hide-sm"><span class="kbd">←</span> <span class="kbd">→</span> navigate · <span class="kbd">F</span> present</span>
+      <button class="icon-btn" id="nextBtn" aria-label="Next module"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </footer>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+  <img alt="">
+  <button class="icon-btn" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<div class="hs-label" id="hsLabel"></div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
