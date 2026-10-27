@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sustainable AI · Digital Twins</title>
+  <title>Sustainable AI · Digital Twins | Advania</title>
   <meta name="description" content="An agentic-dashboard style presentation on AI Digital Twins: origins, application areas, smart cities, the OODA loop and the dimensions of sustainable AI.">
-  <meta name="theme-color" content="#050b16">
+  <meta name="theme-color" content="#1a0420">
   <meta property="og:title" content="Sustainable AI Using Digital Twins">
   <meta property="og:description" content="From Apollo 13 to autonomous, carbon-aware digital twins — an interactive dashboard presentation.">
   <meta property="og:image" content="assets/img/six-dimensions.jpg">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -22,13 +22,9 @@
   <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar" id="sidebar" aria-label="Presentation navigation">
     <div class="brand">
-      <div class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#3ee6ff" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="12" r="4"/><circle cx="17" cy="12" r="4" stroke="#5cf27a"/><path d="M11 12h2"/></svg>
-      </div>
-      <div>
-        <div class="brand-title">Sustainable AI</div>
-        <div class="brand-sub">Digital Twin Ops</div>
-      </div>
+      <img class="brand-logo" src="assets/img/advania-logo-white.svg" alt="Advania" width="115" height="54">
+      <div class="brand-bar" aria-hidden="true"></div>
+      <div class="brand-sub"><b>Sustainable AI</b><br>Digital Twin Ops</div>
     </div>
 
     <div class="nav-label">Modules</div>
@@ -48,6 +44,14 @@
       <div class="meter"><i id="visitedMeter"></i></div>
       <div class="row"><span>loop latency</span><span id="latency">8 ms</span></div>
     </div>
+    <a class="qr-card" href="https://www.linkedin.com/in/gokhantenekecioglu" target="_blank" rel="noopener" aria-label="Gökhan Tenekecioglu on LinkedIn">
+      <img src="assets/img/linkedin-qr.svg" alt="QR code linking to Gökhan Tenekecioglu's LinkedIn profile" width="84" height="84">
+      <span class="qr-text">
+        <span class="qr-label">LinkedIn</span>
+        <b>Gökhan Tenekecioglu</b>
+        <span>Scan or click to connect</span>
+      </span>
+    </a>
   </aside>
 
   <!-- ================= MAIN ================= -->
@@ -73,7 +77,7 @@
         <div class="slide-inner">
           <div class="cover-hero">
             <div class="card" style="padding:30px 30px 28px">
-              <span class="kicker">Briefing · 6 modules</span>
+              <div class="cover-top"><span class="kicker">Briefing · 6 modules</span><img class="cover-logo" src="assets/img/advania-logo-white.svg" alt="Advania" width="115" height="54"></div>
               <h1 class="cover-title">Sustainable AI<br>Using <span class="grad">Digital Twins</span></h1>
               <p class="cover-sub">From NASA's Apollo 13 ground simulators to autonomous, carbon-aware twins that observe, orient, decide and act — how AI Digital Twins are becoming the operating system for resilient, green enterprises and cities.</p>
               <div class="cta">
@@ -598,6 +602,7 @@
       <span id="counter" class="mono">00 / 06</span>
       <div class="progress" aria-hidden="true"><i id="progress"></i></div>
       <span class="hide-sm"><span class="kbd">←</span> <span class="kbd">→</span> navigate · <span class="kbd">F</span> present</span>
+      <span class="signature" title="Gökhan Tenekecioglu">Gökhan Tenekecioglu</span>
       <button class="icon-btn" id="nextBtn" aria-label="Next module"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
     </footer>
   </div>

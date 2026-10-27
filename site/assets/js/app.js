@@ -31,7 +31,7 @@
     $("#crumb").textContent = slides[i].dataset.title;
     $("#visitedCount").textContent = `${visited.size} / ${total}`;
     $("#visitedMeter").style.width = `${(visited.size / total) * 100}%`;
-    document.title = i === 0 ? "Sustainable AI · Digital Twins" : `${slides[i].dataset.title} · Sustainable AI`;
+    document.title = i === 0 ? "Sustainable AI · Digital Twins | Advania" : `${slides[i].dataset.title} · Advania`;
     if (push) history.replaceState(null, "", `#${i}`);
     document.body.classList.remove("nav-open");
     hideLabel();
