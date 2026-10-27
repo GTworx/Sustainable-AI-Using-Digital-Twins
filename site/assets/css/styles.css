@@ -475,7 +475,7 @@ td.bad { color: #f39ac8; }
 .lightbox .icon-btn { position: absolute; top: 18px; right: 18px; }
 
 /* Presenter mode (hide chrome) */
-body.present .app { grid-template-columns: 0 1fr; }
+body.present .app { grid-template-columns: minmax(0, 1fr); }
 body.present .sidebar { display: none; }
 
 /* Responsive ------------------------------------------------------------- */
